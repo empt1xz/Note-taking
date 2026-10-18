@@ -1,0 +1,20 @@
+/* Formulário */
+.formInput {
+  width: 200px;
+}
+
+/* Form Input Title */
+.inputTitle {
+  background: rgb(245, 245, 245);
+}
+
+/* Form Input Content */
+.inputContent {
+  background: rgb(245, 245, 245);
+}
+
+textarea {
+  resize: none;
+  border: none;
+  outline-color: blue;
+}
