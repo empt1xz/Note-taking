@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.aside {
+  position: fixed;
+  left: 0;
+  width: 300px;
+  padding: 10px;
+  border-right: 1px solid rgba(68, 67, 67, 0.253);
+  height: 100vh;
+  user-select: none;
+  overflow-y: auto;
+}
+
+.aside > h1 {
+  font-family: "Inter";
+  margin-bottom: 50px;
+  text-align: center;
+  color: rgb(36, 36, 36);
+}
+
+.aside::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: rgb(6, 134, 255);
+}
+
+.aside::-webkit-scrollbar-track {
+  width: 10px;
+  background-color: rgba(255, 255, 0, 0);
+}
+
+.aside::-webkit-scrollbar {
+  width: 3px;
+}
+
+.buttonCreateNote {
+  background: rgb(6, 134, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-family: "Inter";
+  width: 100%;
+  transition: 0.5s;
+  margin-bottom: 20px;
+}
+
+.buttonCreateNote:hover {
+  background-color: rgb(73, 73, 255);
+  cursor: pointer;
+}
+
+.notes {
+  border-top: 1px solid rgba(68, 67, 67, 0.253);
+  padding-top: 10px;
+  color: rgba(0, 0, 0, 0.562);
+  font-family: "Inter";
+  margin-bottom: 15px;
+}
+
+.listNotes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listNotes > article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  gap: 20px;
+  font-family: "Inter";
+  user-select: none;
+}
+
+.listNotes > .active {
+  background-color: rgb(231, 231, 231);
+  border-radius: 10px;
+}
