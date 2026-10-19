@@ -1,15 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
 .aside {
-  position: fixed;
-  left: 0;
   width: 300px;
   padding: 10px;
   border-right: 1px solid rgba(68, 67, 67, 0.253);
   height: 100vh;
   user-select: none;
   overflow-y: auto;
- 
 }
 
 .aside > h1 {

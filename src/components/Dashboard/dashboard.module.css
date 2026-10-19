@@ -1,0 +1,22 @@
+.layoutNotes {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr 1fr 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-areas:
+    "aside header header header"
+    "aside content content content";
+}
+
+.header {
+  grid-area: header;
+}
+
+.aside {
+  grid-area: aside;
+}
+
+.content {
+  grid-area: content;
+}

@@ -1,57 +1,58 @@
 import { Plus, Tag, Trash } from "lucide-react";
 import style from "./aside.module.css";
-import { useState } from "react";
+import type { Note } from "../Dashboard/dashboard";
 
-type Note = {
-  title: string;
-  id?: number;
+type AsideProps = {
+  notes: Note[];
+  search: string;
+  activeNoteId: number | null;
+  createNote: () => void;
+  deleteNote: (id: number) => void;
+  selectNote: (id: number) => void;
 };
 
-export default function Aside() {
-  const [notes, setNotes] = useState<Note[]>([]);
-  const [activeNote, setActive] = useState<number | null>(null);
-
-  function createNote() {
-    const note = {
-      title: "nota 5",
-      id: Date.now(),
-    };
-
-    setNotes([...notes, note]);
-  }
-  function deleteNote(id: number) {
-    setNotes(notes.filter((note) => note.id !== id));
-  }
+export default function Aside({
+  notes,
+  search,
+  activeNoteId,
+  createNote,
+  deleteNote,
+  selectNote,
+}: AsideProps) {
+  const filteredNotes = notes.filter((note) =>
+    note.title.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
-    <>
-      <aside className={style.aside}>
-        <h1>Finanças</h1>
+    <aside className={style.aside}>
+      <h1>Anotações</h1>
 
-        <button className={style.buttonCreateNote} onClick={createNote}>
-          <Plus size={16} /> Criar nova nota
-        </button>
+      <button className={style.buttonCreateNote} onClick={createNote}>
+        <Plus size={16} />
+        Criar nova nota
+      </button>
 
-        <p className={style.notes}>Notas</p>
+      <p className={style.notes}>Notas</p>
 
-        {notes.map((item) => (
-          <section className={style.listNotes} key={item.id}>
-            <article
-              className={activeNote === item.id ? style.active : ""}
-              onClick={() => setActive(item.id!)}
-            >
-              <Tag size={18} /> <p>{item.title}</p>{" "}
-              <Trash
-                size={18}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  deleteNote(item.id!);
-                }}
-              />
-            </article>
-          </section>
-        ))}
-      </aside>
-    </>
+      {filteredNotes.map((item) => (
+        <section className={style.listNotes} key={item.id}>
+          <article
+            className={activeNoteId === item.id ? style.active : ""}
+            onClick={() => selectNote(item.id)}
+          >
+            <Tag size={18} />
+            <p>{item.title}</p>
+
+            <Trash
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteNote(item.id);
+              }}
+              size={18}
+            />
+          </article>
+        </section>
+      ))}
+    </aside>
   );
 }
