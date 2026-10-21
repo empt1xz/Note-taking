@@ -6,7 +6,7 @@ import Dashboard from "./components/Dashboard/dashboard";
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
     </Routes>
   </BrowserRouter>,
 );
